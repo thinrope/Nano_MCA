@@ -26,7 +26,7 @@ File Name: HW_V1_config.c
  ***************************************************************************/
 
 #include "stm32f10x_type.h"
-#include "Main.h"
+#include "main.h"
 #include "Function.h"
 #include "Menu.h"
 #include "stm32f10x_it.h"

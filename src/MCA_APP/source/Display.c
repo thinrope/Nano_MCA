@@ -97,7 +97,7 @@ File Name: main.c
 ********************************************************************************/
 #include "stm32f10x_type.h"
 #include "Fixed.h"
-#include "Main.h"
+#include "main.h"
 #include "Function.h"
 #include "Menu.h"
 #include "Lcd.h"

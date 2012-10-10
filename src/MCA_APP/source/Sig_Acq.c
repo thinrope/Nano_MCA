@@ -79,7 +79,7 @@ From: http://universe.gsfc.nasa.gov/xrays/programs/astroe/eng/detection.html
 
 
 #include "stm32f10x_type.h"
-#include "Main.h"
+#include "main.h"
 #include "Function.h"
 #include "Menu.h"
 #include "Lcd.h"

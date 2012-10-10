@@ -24,7 +24,7 @@ File Name: stm32f10x_it.c
 
 
 #include "stm32f10x_type.h"
-#include "Main.h"
+#include "main.h"
 #include "Function.h"
 #include "Menu.h"
 #include "Lcd.h"

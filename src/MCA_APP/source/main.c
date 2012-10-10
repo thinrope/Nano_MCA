@@ -27,7 +27,7 @@
 File Name: main.c
 ********************************************************************************/
 #include "stm32f10x_type.h"
-#include "Main.h"
+#include "main.h"
 #include "Function.h"
 #include "Menu.h"
 #include "Lcd.h"
@@ -58,7 +58,7 @@ const static u8 Small_Trefoil[] = {
 
 #if LANGUAGE == EN
 								//012345678901234567890123456789
-const static char *msg_app_ver = "  APP Revision 0.12 (2012/9/15)";
+const static char *msg_app_ver = "  APP Revision "__APP_VERSION" ("__BUILD_DATE")";
 const static char *msg_chans =   "         2048 Channels";
 const static char *msg_free =    "      Open Source Software";
 const static char *msg_warr =    "          No Warranty";
