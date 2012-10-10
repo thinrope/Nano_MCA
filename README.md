@@ -13,3 +13,5 @@ http://sourceforge.net/projects/gammagrapherv2/
 http://tech.groups.yahoo.com/group/GammaSpectrometry/
 
 I will try to clean up some of the code and improve the build process.
+
+Please see README file for more information.
