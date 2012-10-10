@@ -1,0 +1,21 @@
+#!/bin/sed -f
+
+# Converts IAR assembly file to something GCC can chew on
+# Copyright 2010 Tormod Volden
+
+# Convert comments from ; to /* */
+s/;\(.*\)$/\/* \1 *\//
+
+# Convert assignments A = B to .equiv A, B
+s/^\([^ =]*\)[ ]*= \(.*\)/.equiv \1, \2/
+
+# Convert function pointer definitions from
+#   __name comment \n B address to .thumb_set __name, address comment
+/^__/N; s/^\(__[^ ]*\)[ ]*\(\/\*.*\)\r*\n.*B\(.*\)$/.thumb_set \1, \3 \2/
+
+# Remove MS/DOS eol markers (also introduced mid-line by above)
+s///g
+
+# Precede all function definitions by .thumb_func
+/^__/i\
+.thumb_func
