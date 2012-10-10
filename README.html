@@ -1,0 +1,475 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="20120417;10574400">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGED" CONTENT="20120915;13182900">
+	<META NAME="Info 1" CONTENT="">
+	<META NAME="Info 2" CONTENT="">
+	<META NAME="Info 3" CONTENT="">
+	<META NAME="Info 4" CONTENT="">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<META NAME="CHANGEDBY" CONTENT="LeDoyle Pingel">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 0; orphans: 0 }
+		P.western { font-family: "Times New Roman", serif; font-size: 12pt; so-language: en-US }
+		P.cjk { font-family: "AR PL UMing HK"; font-size: 12pt; so-language: zh-CN }
+		P.ctl { font-family: "Lohit Hindi"; font-size: 12pt; so-language: hi-IN }
+		H1 { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 0; orphans: 0 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt; so-language: en-US }
+		H1.cjk { font-family: "AR PL UMing HK"; font-size: 16pt; so-language: zh-CN }
+		H1.ctl { font-family: "Lohit Hindi"; font-size: 16pt; so-language: hi-IN }
+		H2 { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 0; orphans: 0 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "AR PL UMing HK"; font-size: 14pt; so-language: zh-CN; font-style: italic }
+		H2.ctl { font-family: "Lohit Hindi"; font-size: 14pt; so-language: hi-IN; font-style: italic }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<H1 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">README file
+for Gamma Grapher Version 2</FONT></H1>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H1 CLASS="western" STYLE="margin-top: 0in; margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif">SUMMARY</FONT></H1>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">This
+is a project to convert a DSO 201 Nano oscilloscope into a
+multichannel analyzer for gamma spectrometry. This software should
+work with all versions of the DSO 201. However the very earliest does
+not have analog input connected to both ADC's. So sampling with that
+is at half the speed as with other versions.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+0.12.  (Note that LIB remains at version 0.11.)  APP version 0.12
+corrects a problem of compatibility with windows.  2 gb SD micro
+flash cards have been tested formatted under Windows 7 with both
+FAT16 and FAT32 formats.  Allocation size 32k and 4096 respectively. 
+Allocation size is not critical but other values not tested. 
+Spectrum files created on the Nano can be read through USB connection
+by Windows 7.  With release 0.12 a dfu file is provided instead of
+the two separate bin files.  Firmware load instructions have been
+updated.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H1 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">LICENSING</FONT></H1>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">See
+the file COPYING as well as each file for license information.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">This
+project is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation; either version 2.1 of the License,
+or (at your option) any later version.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">This
+project is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Lesser General Public License for more details.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">You
+should have received a copy of the GNU Lesser General Public License
+along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
+USA</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H1 CLASS="western">DEVELOPMENT ENVIRONMENT</H1>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Development
+environment is for both gcc under Linux or IAR under windows.
+Programming of Nano is done through dfu utility. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Source
+code is available from <A HREF="https://sourceforge.net/projects/gammagrapherv2/files/">source
+forge</A> or in files area of gammaspectrometry group at Yahoo.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H1 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">HOW TO USE</FONT></H1>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">To load
+firmware:</FONT></H2>
+<OL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Power
+	off the Nano;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">While
+	pressing on &quot;down&quot; (-) button turn Nano back on;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Connect
+	mini B USB cable between computer and Nano;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Go
+	to the GGV2 folder;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">From
+	shell: &quot;sudo dfu-util -a 0 -D ggv2.dfu&quot;; (or the
+	equivalent under Windows)</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Cycle
+	the power and your latest firmware should be running.</FONT></FONT></P>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">Setup</FONT></H2>
+<OL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Connect
+	signal source to coax connector on the Nano. Input can be 0 – 2.8
+	V. Signal can be positive or negative. </FONT></FONT>
+	</P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Connect
+	a piezo transducer to the reference pin.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Select
+	mode to PHA or Rate and set pulse polarity. </FONT></FONT>
+	</P>
+</OL>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif">Settings</FONT></H2>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">To
+select operating mode and adjust parameters there is a menu feature.
+Press the M key to enter and exit the menu. You can manually save
+parameters to flash memory. Saved settings are restored on power up
+or through menu. The 4-way button has markings that should be
+ignored. Buttons will be referred to as up, down, left, and right.
+The button marked for pause and forward controls acquisition</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">of
+pulses. This allows you to stop the display and resume at any time. A
+small symbol at lower left shows if stopped or running.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">There
+are 2 modes: PHA and Rate </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">PHA
+is pulse height analysis, traditional multi channel analyzer. Input
+pulses are plotted on X axis with Y axis being accumulated counts. At
+this point only 2048 channels are supported. This should be
+sufficient. There is a cursor that provides a readout of counts and
+keV. Left and right buttons move the cursor. You can adjust width of
+cursor so counts display includes multiple channels. Up and down
+buttons control zoom in/out. Use Input Range to adjust for input peak
+voltage. 0 is lowest and represents inputs as low as 50 mv. Maximum
+input is 10 V. Always start from the highest range working down until
+good signal is seen. Use &quot;energy coefficient&quot; to adjust
+translation of pulse height to x axis as displayed. Display y axis is
+self adjusting.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Rate
+records counts over an adjustable period, then displays past counts
+with a scrolling histogram. Sample periods can be adjusted through
+menu. Adjusting sample period changes the scrolling speed of
+histogram. Display y axis is self-adjusting. Display y axis is self
+adjusting. A cursor provides readout of counts an any point in the
+graph.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Setup
+Menu:</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Setup
+menu provides adjustment of parameters to match probe setup etc. To
+increase or decrease a value use right or left button, respectively.
+Those settings that have no value are executed with either left or
+right key. Such as Clear All. Settings are restored from flash memory
+automaticaly on power up. Changes to settings is automatically stored
+to flash memory on leaving menu mode. Unimplemented parameters are
+not displayed or marked with an asterisk.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western" STYLE="margin-top: 0in; margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Communicating
+with Nano</FONT></FONT></H2>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+way the nano communicates with a host is it appears to be mass
+storage device on the USB bus. Specifically a SCSI hard drive. This
+uses existing code and is a standard means of communicating over USB.
+Also means you don't need any special code on the PC, the nano looks
+like a generic mass storage device.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+sd card in nano is accessed on the most primitive level over USB,
+Just block reads and writes. File-system code resides on the PC.
+However there is also file system code in the Nano. So you have two
+independent pieces of software on two different pieces of hardware
+accessing the same flash card at the level of block reads and writes.
+This can really get things confused! Best to use only PC or only nano
+when usb is connected.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Obviously
+the nano has to be able to be connected to USB for charging while in
+use, Most devices like MP3 players lock out the device controls while
+USB connected. Instead a warning will be added if USB connected and a
+spectrum file created. To access new file from PC just disconnect and
+reconnect the usb cable. That resets the pc code and it will see all
+the new files in nano.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western">KNOWN ISSUES</H2>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Flash
+	card support is tested with FAT32 filesystem only. FAT16 code is
+	included but untested.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Number
+	of files is very limited. This will be fixed in next release.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Turning
+	on the Nano with USB connected causes problems with flash card
+	access. Code detects this and reminds users to disconnect USB.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">ADC
+	is set up for overlapping sampling using both ADC's. This provides a
+	2 mHz sample rate. Very old Nano's have only 1 ADC connected to
+	input. This will cause problems. If necessary software will add an
+	option to use only 1 ADC. Recommended solution is to get a newer
+	Nano.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">In
+	rate mode cursor disappears once screen is filled. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Leaving
+	USB connected introduces noise when on lowest input range. FIXED 0.9</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Exiting
+	the menu resets the display. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Configuration
+	is not saved or restored. FIXED 0.3 Now stored to flash memory and
+	restored on power up.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+	pushbutton seems to be a bit delayed in response. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+	play , start button works only in PHA mode. Should be nice to have
+	working in other modes too. A symbol on screen could help to
+	understand if pause or play mode is running. FIXED 0.3 controls all
+	modes now. Displays icon.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">No
+	save mode is working at the moment. FIXED release 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">&quot;Clear
+	all&quot; is working for PHA mode only. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">AUTOTUNE
+	function is seted fix to TRUE value so don't know if this is
+	correctly working but presume it is a bug. 0.9 Autotune not fully
+	implemented yet.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">AUTOTUNE
+	is no longer displayed. 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Rate
+	mode is scrolling without pause possibility like in V01. The graph
+	change with the refresh time. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">ALARM
+	level seems to work for PHA mode only. No longer displayed 0.3 Alarm
+	now functions both PHA and Rate modes.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+	auto scroll keeping the pushbutton pressed is too slow. FIXED 0.3</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">the
+	&quot;energy coefficent&quot; value is setting in strange way
+	especially going to major values it doesn't memorize. Going to
+	negative it go to 65000 and find the correct value is a big problem
+	as it takes a lot of time to scroll. FIXED 0.3 Replaced with
+	quadratic calibration, not yet complete 0.9</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Oscilloscope
+	wave is a bit odd and don't know the meaning FIXED 0.3 Now displays
+	a captured pulse and nothing else. FIXED 0.5 now shows pulse as
+	input to Nano, including positive or negative waveform. 0.9 Scope
+	mode removed.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Revision
+	0.5 the threshold does not seem to affect pulse detection.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Rate
+	measurement in CPM is about half of actual rate. This needs to be
+	corrected.</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Coincidence
+	detection code still needs implementation.</FONT></FONT></P>
+</UL>
+<H1 CLASS="western">Release Notes</H1>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.11</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Spectrums
+	can now be loaded to micro SD card as Comma Separated Format. This
+	format can be read in by almost any spread sheet program. Action is
+	through the menu. File names are sequential with starting number
+	selectable. Number of files is very limited. This will be fixed in
+	future. Flash card must be preformatted with a FAT32 filesystem.
+	Root folder needs to be empty or near empty. </FONT></FONT>
+	</P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">USB
+	cable can be used to access the SD flash card as a mass storage
+	device. This allows files to be viewed, copied, deleted, renamed, or
+	edited.</FONT></FONT></P>
+</UL>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.10</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Zero
+	no longer wanders. There is code to keep ground state (zero volts)
+	steady.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Proper
+	range can be selected by adjusting in menu in 0.5 volt increments.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Dv/dt
+	threshold can now be negative to correspond with negative pulses.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Default
+	setup is for NaI(Tl) probe with 22k ohm and 10 nF in series to act
+	as a filter. This is necessary to widen the pulses enough to detect.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Rate
+	mode still needs work. Numerical values and the yellow bar show less
+	than half of actual rate.</FONT></FONT></P>
+</UL>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.9</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">See
+	“Known Problems” list for details.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Display
+	can be switched between horizontal and vertical orientation at any
+	time.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	horizontal yellow bar graph shows rate in cpm with update every time
+	the display is refreshed. Scale is 0 to alarm value, in cpm. Note
+	that cpm reads about half of actual value, will be fixed in 0.10.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">PHA
+	mode cursor readout is in channels if not calibrated, keV if
+	calibrated. Display shows which units in use.</FONT></FONT></P>
+</UL>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.8</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">This
+	version eliminates the glitch in data when in menu mode. Data
+	collection now continues regardless of being in menu mode or not.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">First
+	order filter is working for raw signal input and rate mode display.
+	PHA mode filter is not implemented yet.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">There
+	is still no coincidence detector in raw signal processing.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Spectrum
+	storage is not implemented yet, that should be in 0.9.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">PHA
+	mode calibration is not implemented yet. That will be in the form of
+	3 points mapping channel number to energy in keV.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Peak
+	finding software for PHA mode not implemented yet, but will be
+	shortly.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Very
+	high data rates with filter on can result in bad display, clear data
+	to fix.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Bug
+	list has not been updated yet.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">CPM
+	values are about 50% of actual, this will be fixed in 0.9.</FONT></FONT></P>
+</UL>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.4, 0.5</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">This
+	version changes orientation to “portrait”. This change allows
+	mounting in narrower enclosures for hand held use. The option to
+	switch between portrait and landscape orientation will be selectable
+	from menu in future.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+	reference output is now set up to drive a piezo sounder. While
+	working only a single beep at start up is currently implemented.
+	Next release will include a beep for each pulse detected in rate
+	mode. It will sound like a traditional Geiger counter. Beeps will be
+	configurable in menu.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Calibration
+	does not yet work as code is needed to allow inputting fixed point
+	numbers. Eventually peaks in spectrum (PHA mode) will be selected
+	and energy input for the peak. Calibration will use a 2nd order in
+	the form of ax^2 + bx + c.</FONT></FONT></P>
+	<LI><P CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Known
+	problems include rate mode filter causing display problems.</FONT></FONT></P>
+</UL>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.3</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Configuration
+	save and restore now implemented;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Added
+	adjustable width of cursor in PHA mode;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Numerous
+	bugs fixed, see above.</FONT></FONT></P>
+</UL>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+beta, version 0.2</FONT></FONT></H2>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Full
+of bugs, do not use.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Release
+pre-beta, ver 0.1</FONT></FONT></H2>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Software
+	needs to be tested with current production version of Nano the one
+	with all buttons in a vertical column;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Software
+	crashes if usb connected to a pc, not a hardware problem as</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">DSO
+	software doesn't have this problem;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">There
+	are warnings of incompatible initialization for menu array;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">PHA
+	mode counts roll over to 0 after 65536, all counts need to be</FONT></FONT></P>
+</UL>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">divided
+by 2 before this happens;</FONT></FONT></P>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Oscilliscope
+	mode is erratic in when it displays pulses;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Rate
+	display of scale needs to be something useful;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Add
+	overlapping ADC, current versions of Nano tie AN1 and AN2 together;</FONT></FONT></P>
+</UL>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">None
+	of the SD flash card software is tested, parameters are not saved;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">PHA
+	mode needs an optional decay feature so spectrum can be observed</FONT></FONT></P>
+</UL>
+<P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">changing
+as probe is moved, needed for survey work;</FONT></FONT></P>
+<UL>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">analog
+	input appears to be working with 1 V p-p square wave input,</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">esting
+	with scintillation probe not done yet;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">setting
+	input range does not appear to work, looks to be unneeded;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">most
+	of menu not tested;</FONT></FONT></P>
+	<LI><P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Sans, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">configuration
+	does not save and restore between power cycles;</FONT></FONT></P>
+</UL>
+</BODY>
+</HTML>
