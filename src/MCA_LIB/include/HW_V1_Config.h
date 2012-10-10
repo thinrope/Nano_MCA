@@ -131,13 +131,13 @@ typedef enum {
 #define AFIO_MAPR   (*((vu32 *)(AFIO_BASE+0x04)))
 
 //These bits are written by software to select the source input for EXTIx external interrupt.
-#define 0000 PA_x_PIN
-#define 0001 PB_x_PIN
-#define 0010 PC_x_PIN
-#define 0011 PD_x_PIN
-#define 0100 PE_x_PIN
-#define 0101 PF_x_PIN
-#define 0110 PG_x_PIN
+#define PA_x_PIN 0000
+#define PB_x_PIN 0001
+#define PC_x_PIN 0010
+#define PD_x_PIN 0011
+#define PE_x_PIN 0100
+#define PF_x_PIN 0101
+#define PG_x_PIN 0110
 
 #define AFIO_EXTICR1	(*((vu32 *)(AFIO_BASE+0x08)))	//EXTI x configuration (x= 0 to 3)
 #define AFIO_EXTICR2	(*((vu32 *)(AFIO_BASE+0x0C)))	//EXTI x configuration (x= 4 to 7)
