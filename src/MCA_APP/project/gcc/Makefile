@@ -45,20 +45,24 @@ ASRC = ASM_Function-gcc.s cortexm3_macro.s startup_stm32f10x_md.s
 
 AOBJ = $(ASRC:.s=.o)
 
-all: $(NAME).hex
+all: $(NAME).bin
 
 # NOTE: ASM_Funct-gcc.s is not up to date with changes in ASM_Function-gcc.S
 # The assembly has to be converted from IAR style
 #ASM_Function-gcc.S: $(PRJ)/source/ASM_Function.s
 #	sed -f iar2gas < $(PRJ)/source/ASM_Function.s > ASM_Function-gcc.S
 
-$(NAME).elf:	$(AOBJ) $(COBJ) $(LNKSCRIPT)
-	$(CC) $(LFLAGS) -o $(NAME).elf $(AOBJ) $(COBJ)
+%.elf: $(AOBJ) $(COBJ) $(LNKSCRIPT)
+	$(CC) $(LFLAGS) -o $@ $(AOBJ) $(COBJ)
 
-$(NAME).hex:	$(NAME).elf
-	$(OD) -S $(NAME).elf > $(NAME).lst
-	$(CP) -O binary $(NAME).elf $(NAME).bin
-	$(CP) -O ihex $(NAME).elf $(NAME).hex
+%.hex: %.elf
+	$(CP) -O ihex $< $@
+
+%.list: %.elf
+	$(OD) -S $< > $@
+
+%.bin: %.elf
+	$(CP) -O binary $< $@
 
 clean:
 	rm -f *.o $(PRJ)/source/gcc/*.o $(PRJ)/source/*.o $(STM_LIB)/src/*.o ${USB_LIB}/src/*.o ${FIX_LIB}/src/*.o
