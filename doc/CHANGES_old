@@ -1,0 +1,68 @@
+﻿Excerpts from the README file for Gamma Grapher Version 2
+
+Release 0.12  (Note that LIB remains at version 0.11.)
+
+APP version 0.12 corrects a problem of compatibility with windows. 2 GB micro
+SD cards have been tested formatted under Windows 7 with both FAT16 and FAT32
+formats.  Allocation size 32k and 4096 respectively. Allocation size is not
+critical but other values not tested. Spectrum files created on the Nano can be
+read through USB connection by Windows 7. With release 0.12 a dfu file is
+provided instead of the two separate bin files. Firmware load instructions have
+been updated.
+
+Release beta, version 0.11
+Spectrums can now be loaded to micro SD card as Comma Separated Format. This format can be read in by almost any spread sheet program. Action is through the menu. File names are sequential with starting number selectable. Number of files is very limited. This will be fixed in future. Flash card must be preformatted with a FAT32 filesystem. Root folder needs to be empty or near empty. 
+USB cable can be used to access the SD flash card as a mass storage device. This allows files to be viewed, copied, deleted, renamed, or edited.
+Release beta, version 0.10
+Zero no longer wanders. There is code to keep ground state (zero volts) steady.
+Proper range can be selected by adjusting in menu in 0.5 volt increments.
+Dv/dt threshold can now be negative to correspond with negative pulses.
+Default setup is for NaI(Tl) probe with 22k ohm and 10 nF in series to act as a filter. This is necessary to widen the pulses enough to detect.
+Rate mode still needs work. Numerical values and the yellow bar show less than half of actual rate.
+Release beta, version 0.9
+See “Known Problems” list for details.
+Display can be switched between horizontal and vertical orientation at any time.
+A horizontal yellow bar graph shows rate in cpm with update every time the display is refreshed. Scale is 0 to alarm value, in cpm. Note that cpm reads about half of actual value, will be fixed in 0.10.
+PHA mode cursor readout is in channels if not calibrated, keV if calibrated. Display shows which units in use.
+Release beta, version 0.8
+This version eliminates the glitch in data when in menu mode. Data collection now continues regardless of being in menu mode or not.
+First order filter is working for raw signal input and rate mode display. PHA mode filter is not implemented yet.
+There is still no coincidence detector in raw signal processing.
+Spectrum storage is not implemented yet, that should be in 0.9.
+PHA mode calibration is not implemented yet. That will be in the form of 3 points mapping channel number to energy in keV.
+Peak finding software for PHA mode not implemented yet, but will be shortly.
+Very high data rates with filter on can result in bad display, clear data to fix.
+Bug list has not been updated yet.
+CPM values are about 50% of actual, this will be fixed in 0.9.
+Release beta, version 0.4, 0.5
+This version changes orientation to “portrait”. This change allows mounting in narrower enclosures for hand held use. The option to switch between portrait and landscape orientation will be selectable from menu in future.
+The reference output is now set up to drive a piezo sounder. While working only a single beep at start up is currently implemented. Next release will include a beep for each pulse detected in rate mode. It will sound like a traditional Geiger counter. Beeps will be configurable in menu.
+Calibration does not yet work as code is needed to allow inputting fixed point numbers. Eventually peaks in spectrum (PHA mode) will be selected and energy input for the peak. Calibration will use a 2nd order in the form of ax^2 + bx + c.
+Known problems include rate mode filter causing display problems.
+
+Release beta, version 0.3
+Configuration save and restore now implemented;
+Added adjustable width of cursor in PHA mode;
+Numerous bugs fixed, see above.
+
+Release beta, version 0.2
+Full of bugs, do not use.
+
+Release pre-beta, ver 0.1
+Software needs to be tested with current production version of Nano the one with all buttons in a vertical column;
+Software crashes if usb connected to a pc, not a hardware problem as
+DSO software doesn't have this problem;
+There are warnings of incompatible initialization for menu array;
+PHA mode counts roll over to 0 after 65536, all counts need to be
+divided by 2 before this happens;
+Oscilliscope mode is erratic in when it displays pulses;
+Rate display of scale needs to be something useful;
+Add overlapping ADC, current versions of Nano tie AN1 and AN2 together;
+None of the SD flash card software is tested, parameters are not saved;
+PHA mode needs an optional decay feature so spectrum can be observed
+changing as probe is moved, needed for survey work;
+analog input appears to be working with 1 V p-p square wave input,
+esting with scintillation probe not done yet;
+setting input range does not appear to work, looks to be unneeded;
+most of menu not tested;
+configuration does not save and restore between power cycles;

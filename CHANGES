@@ -1,0 +1,26 @@
+2012-10-10	Nano_MCA-0.12.1 released
+===============================================================
+Summary:
+--------
+This is the first release based on the new git repo:
+	https://github.com/thinrope/Nano_MCA
+
+There are almost no changes to the code from the previous GGV2-0.12, but a lot
+of cleanup and a new build system. I decided to rename the project to Nano_MCA
+to show better its purpose and to be easy to find in search engines (than
+GGV2). I will try to set some time to improve the code, but anybody, please
+feel free to submit any bug/issues or requests/features directly on the github
+Issue tracker. And of course feel incouraged to fork!
+
+Most important commits:
+-----------------------
+[6f41148] bug: wrong order of defines? doesn't compile, fixing.
+[dac2080] Adding top-level Makefile
+[a05631d] Adding dynamic VERSION and BUILD_DATE
+[e5db3a8] merging tools/make_dfu.sh into `make release`
+[7b10fd8] moving all libraries to lib/
+[5b1478f] Initial import from GGV2_0.12.zip
+
+===============================================================
+FOR OLDER CHANGES look in doc/CHANGES_old
+

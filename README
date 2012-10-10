@@ -1,143 +1,159 @@
-﻿README file for Gamma Grapher Version 2
+﻿		Nano_MCA README (fork of GammaGrapherVersion2 GGV2)
+
 
 SUMMARY
 
-This is a project to convert a DSO 201 Nano oscilloscope into a multichannel analyzer for gamma spectrometry. This software should work with all versions of the DSO 201. However the very earliest does not have analog input connected to both ADC's. So sampling with that is at half the speed as with other versions.
-
-Release 0.12.  (Note that LIB remains at version 0.11.)  APP version 0.12 corrects a problem of compatibility with windows.  2 gb SD micro flash cards have been tested formatted under Windows 7 with both FAT16 and FAT32 formats.  Allocation size 32k and 4096 respectively.  Allocation size is not critical but other values not tested.  Spectrum files created on the Nano can be read through USB connection by Windows 7.  With release 0.12 a dfu file is provided instead of the two separate bin files.  Firmware load instructions have been updated.
+This is a project to convert a DSO 201 Nano oscilloscope into a multichannel
+analyzer for gamma spectrometry. This software should work with all versions of
+the DSO 201. However the very earliest does not have analog input connected to
+both ADC's. So sampling with that is at half the speed as with other versions.
 
 
 LICENSING
 
 See the file COPYING as well as each file for license information.
 
-This project is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+This project is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option) any
+later version.
 
-This project is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+This project is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+You should have received a copy of the GNU Lesser General Public License along
+with this library; if not, write to the Free Software Foundation, Inc., 51
+Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
 
 DEVELOPMENT ENVIRONMENT
 
-Development environment is for both gcc under Linux or IAR under windows. Programming of Nano is done through dfu utility. 
+As of 2012-10-10, CodeSourcery-maintained toolchain for ARM EABI under Linux is used:
+http://static.leaflabs.com/pub/codesourcery/arm-2010q1-188-arm-none-eabi-toolchain-linux32.tar.gz
+Just download the above file, extract it to some directory and add it to your
+$PATH, e.g.:
 
-Source code is available from source forge or in files area of gammaspectrometry group at Yahoo.
+mkdir -p $HOME/lbin/ARM_EABI
+wget http://static.leaflabs.com/pub/codesourcery/arm-2010q1-188-arm-none-eabi-toolchain-linux32.tar.gz
+tar xzvf *arm-none-eabi-toolchain-linux32.tar.gz -C $HOME/lbin/ARM_EABI
+echo "export PATH=\$PATH:$HOME/lbin/ARM_EABI/arm/bin" >> $HOME/.bashrc
+
+To upload firmware to the Nano, you'll need dfu-util-0.5 or newer:
+http://wiki.openmoko.org/wiki/Dfu-util
+
+Old (before GGV2-0.12) source code and compiled firmware is available from
+http://sourceforge.net/projects/gammagrapherv2/ and in the files area of
+GammaSpectrometry group at Yahoo (need registration, http://tech.groups.yahoo.com/group/GammaSpectrometry/).
+
 
 HOW TO USE
-To load firmware:
-1. Power off the Nano;
-2. While pressing on "down" (-) button turn Nano back on;
-3. Connect mini B USB cable between computer and Nano;
-4. Go to the GGV2 folder;
-5. From shell: "sudo dfu-util -a 0 -D ggv2.dfu"; (or the equivalent under Windows)
-6. Cycle the power and your latest firmware should be running.
 
-Setup
-1. Connect signal source to coax connector on the Nano. Input can be 0 – 2.8 V. Signal can be positive or negative. 
-2. Connect a piezo transducer to the reference pin.
-3. Select mode to PHA or Rate and set pulse polarity. 
-Settings
+To upgrade the Nano by using pre-compiled firmware (found in /releases directory):
+0. Download/install dfu-util-0.5. or newer;
+1. Download the firmware version you want (latest is best);
+2. Connect the Nano via USB and power it off;
+3. Press and hold on the "down" (\/) button and power on the Nano;
+4. Confirm that you are seeing "Firmware Upgrading..." on its display;
+5. From a shell `dfu-util -a 0 -D the_name_of_the_firmware`;
+6. Disconnect the USB cable and power back on the Nano to confirm the firmare version.
 
-To select operating mode and adjust parameters there is a menu feature. Press the M key to enter and exit the menu. You can manually save parameters to flash memory. Saved settings are restored on power up or through menu. The 4-way button has markings that should be ignored. Buttons will be referred to as up, down, left, and right. The button marked for pause and forward controls acquisition
-of pulses. This allows you to stop the display and resume at any time. A small symbol at lower left shows if stopped or running.
+To build your own firmware:
+0. Setup your einvironment (git, dfu-util, arm-none-eabi-toolchain) as described
+1. Get the source, compile it and uplod (follow onscreen instructions)
+  git clone https://github.com/thinrope/Nano_MCA.git
+  cd Nano_MCA/src
+  make distclean release upload
+
+
+HARDWARE SETUP FOR GAMMA SPECTROMETRY
+
+1. Connect signal source to the probe connector on the Nano.
+ * Input should be within ±2.8 V (both positive/negative pulses can be used)
+ * To use simple scintillator/PMT, tap the signal between HVPS and PMT with a
+   10nF/2kV ceramic cap and connect 22kOhm resistor between the Nano input and
+   signal ground
+2. To hear clicks, connect a piezo transducer to the "Signal Generator" output
+of the Nano.
+
+
+SETTINGS
+
+To select operating mode and adjust parameters there is a menu feature. Press
+the M key to enter and exit the menu. You can manually save parameters to flash
+memory. Saved settings are restored on power up or through menu. The 4-way
+button has markings that should be ignored. Buttons will be referred to as up,
+down, left, and right. The button marked for pause and forward controls
+acquisition of pulses. This allows you to stop the display and resume at any
+time. A small symbol at lower left shows if stopped or running.
 
 There are 2 modes: PHA and Rate 
 
-PHA is pulse height analysis, traditional multi channel analyzer. Input pulses are plotted on X axis with Y axis being accumulated counts. At this point only 2048 channels are supported. This should be sufficient. There is a cursor that provides a readout of counts and keV. Left and right buttons move the cursor. You can adjust width of cursor so counts display includes multiple channels. Up and down buttons control zoom in/out. Use Input Range to adjust for input peak voltage. 0 is lowest and represents inputs as low as 50 mv. Maximum input is 10 V. Always start from the highest range working down until good signal is seen. Use "energy coefficient" to adjust translation of pulse height to x axis as displayed. Display y axis is self adjusting.
+PHA (Pulse Height Analysis) is a traditional multi channel analyzer (MCA).
+Input pulses are plotted on X axis with Y axis being accumulated counts. At
+this point only 2048 channels are supported. This should be sufficient. There
+is a cursor that provides a readout of counts and keV. Left and right buttons
+move the cursor. You can adjust width of cursor so counts display includes
+multiple channels. Up and down buttons control zoom in/out. Use Input Range to
+adjust for input peak voltage. 0 is lowest and represents inputs as low as 50
+mv. Maximum input is 10 V. Always start from the highest range working down
+until good signal is seen. Use "energy coefficient" to adjust translation of
+pulse height to x axis as displayed. Display y axis is self adjusting.
 
-Rate records counts over an adjustable period, then displays past counts with a scrolling histogram. Sample periods can be adjusted through menu. Adjusting sample period changes the scrolling speed of histogram. Display y axis is self-adjusting. Display y axis is self adjusting. A cursor provides readout of counts an any point in the graph.
+Rate mode records counts over an adjustable period, then displays past counts
+with a scrolling histogram. Sample periods can be adjusted through menu.
+Adjusting sample period changes the scrolling speed of histogram. Display y
+axis is self-adjusting. Display y axis is self adjusting. A cursor provides
+readout of counts an any point in the graph.
 
 Setup Menu:
 
-Setup menu provides adjustment of parameters to match probe setup etc. To increase or decrease a value use right or left button, respectively. Those settings that have no value are executed with either left or right key. Such as Clear All. Settings are restored from flash memory automaticaly on power up. Changes to settings is automatically stored to flash memory on leaving menu mode. Unimplemented parameters are not displayed or marked with an asterisk.
+Setup menu provides adjustment of parameters to match probe setup etc. To
+increase or decrease a value use right or left button, respectively. Those
+settings that have no value are executed with either left or right key. Such as
+Clear All. Settings are restored from flash memory automaticaly on power up.
+Changes to settings is automatically stored to flash memory on leaving menu
+mode. Unimplemented parameters are not displayed or marked with an asterisk.
 
 Communicating with Nano
 
-The way the nano communicates with a host is it appears to be mass storage device on the USB bus. Specifically a SCSI hard drive. This uses existing code and is a standard means of communicating over USB. Also means you don't need any special code on the PC, the nano looks like a generic mass storage device.
+The way the nano communicates with a host is it appears to be mass storage
+device on the USB bus. Specifically a SCSI hard drive. This uses existing code
+and is a standard means of communicating over USB. Also means you don't need
+any special code on the PC, the nano looks like a generic mass storage device.
 
-The sd card in nano is accessed on the most primitive level over USB, Just block reads and writes. File-system code resides on the PC. However there is also file system code in the Nano. So you have two independent pieces of software on two different pieces of hardware accessing the same flash card at the level of block reads and writes. This can really get things confused! Best to use only PC or only nano when usb is connected.
+The sd card in nano is accessed on the most primitive level over USB, Just
+block reads and writes. File-system code resides on the PC. However there is
+also file system code in the Nano. So you have two independent pieces of
+software on two different pieces of hardware accessing the same flash card at
+the level of block reads and writes. This can really get things confused! Best
+to use only PC or only nano when usb is connected.
 
-Obviously the nano has to be able to be connected to USB for charging while in use, Most devices like MP3 players lock out the device controls while USB connected. Instead a warning will be added if USB connected and a spectrum file created. To access new file from PC just disconnect and reconnect the usb cable. That resets the pc code and it will see all the new files in nano.
+Obviously the nano has to be able to be connected to USB for charging while in
+use, Most devices like MP3 players lock out the device controls while USB
+connected. Instead a warning will be added if USB connected and a spectrum file
+created. To access new file from PC just disconnect and reconnect the usb
+cable. That resets the pc code and it will see all the new files in nano.
 
-KNOWN ISSUES
 
+KNOWN ISSUES (TBC)
 
-Flash card support is tested with FAT32 filesystem only. FAT16 code is included but untested.
-Number of files is very limited. This will be fixed in next release.
-Turning on the Nano with USB connected causes problems with flash card access. Code detects this and reminds users to disconnect USB.
-ADC is set up for overlapping sampling using both ADC's. This provides a 2 mHz sample rate. Very old Nano's have only 1 ADC connected to input. This will cause problems. If necessary software will add an option to use only 1 ADC. Recommended solution is to get a newer Nano.
-In rate mode cursor disappears once screen is filled. FIXED 0.3
-Leaving USB connected introduces noise when on lowest input range. FIXED 0.9
-Exiting the menu resets the display. FIXED 0.3
-Configuration is not saved or restored. FIXED 0.3 Now stored to flash memory and restored on power up.
-The pushbutton seems to be a bit delayed in response. FIXED 0.3
-The play , start button works only in PHA mode. Should be nice to have working in other modes too. A symbol on screen could help to understand if pause or play mode is running. FIXED 0.3 controls all modes now. Displays icon.
-No save mode is working at the moment. FIXED release 0.3
-"Clear all" is working for PHA mode only. FIXED 0.3
-AUTOTUNE function is seted fix to TRUE value so don't know if this is correctly working but presume it is a bug. 0.9 Autotune not fully implemented yet.
-AUTOTUNE is no longer displayed. 0.3
-Rate mode is scrolling without pause possibility like in V01. The graph change with the refresh time. FIXED 0.3
-ALARM level seems to work for PHA mode only. No longer displayed 0.3 Alarm now functions both PHA and Rate modes.
-The auto scroll keeping the pushbutton pressed is too slow. FIXED 0.3
-the "energy coefficent" value is setting in strange way especially going to major values it doesn't memorize. Going to negative it go to 65000 and find the correct value is a big problem as it takes a lot of time to scroll. FIXED 0.3 Replaced with quadratic calibration, not yet complete 0.9
-Oscilloscope wave is a bit odd and don't know the meaning FIXED 0.3 Now displays a captured pulse and nothing else. FIXED 0.5 now shows pulse as input to Nano, including positive or negative waveform. 0.9 Scope mode removed.
-Revision 0.5 the threshold does not seem to affect pulse detection.
-Rate measurement in CPM is about half of actual rate. This needs to be corrected.
-Coincidence detection code still needs implementation.
-Release Notes
-Release beta, version 0.11
-Spectrums can now be loaded to micro SD card as Comma Separated Format. This format can be read in by almost any spread sheet program. Action is through the menu. File names are sequential with starting number selectable. Number of files is very limited. This will be fixed in future. Flash card must be preformatted with a FAT32 filesystem. Root folder needs to be empty or near empty. 
-USB cable can be used to access the SD flash card as a mass storage device. This allows files to be viewed, copied, deleted, renamed, or edited.
-Release beta, version 0.10
-Zero no longer wanders. There is code to keep ground state (zero volts) steady.
-Proper range can be selected by adjusting in menu in 0.5 volt increments.
-Dv/dt threshold can now be negative to correspond with negative pulses.
-Default setup is for NaI(Tl) probe with 22k ohm and 10 nF in series to act as a filter. This is necessary to widen the pulses enough to detect.
-Rate mode still needs work. Numerical values and the yellow bar show less than half of actual rate.
-Release beta, version 0.9
-See “Known Problems” list for details.
-Display can be switched between horizontal and vertical orientation at any time.
-A horizontal yellow bar graph shows rate in cpm with update every time the display is refreshed. Scale is 0 to alarm value, in cpm. Note that cpm reads about half of actual value, will be fixed in 0.10.
-PHA mode cursor readout is in channels if not calibrated, keV if calibrated. Display shows which units in use.
-Release beta, version 0.8
-This version eliminates the glitch in data when in menu mode. Data collection now continues regardless of being in menu mode or not.
-First order filter is working for raw signal input and rate mode display. PHA mode filter is not implemented yet.
-There is still no coincidence detector in raw signal processing.
-Spectrum storage is not implemented yet, that should be in 0.9.
-PHA mode calibration is not implemented yet. That will be in the form of 3 points mapping channel number to energy in keV.
-Peak finding software for PHA mode not implemented yet, but will be shortly.
-Very high data rates with filter on can result in bad display, clear data to fix.
-Bug list has not been updated yet.
-CPM values are about 50% of actual, this will be fixed in 0.9.
-Release beta, version 0.4, 0.5
-This version changes orientation to “portrait”. This change allows mounting in narrower enclosures for hand held use. The option to switch between portrait and landscape orientation will be selectable from menu in future.
-The reference output is now set up to drive a piezo sounder. While working only a single beep at start up is currently implemented. Next release will include a beep for each pulse detected in rate mode. It will sound like a traditional Geiger counter. Beeps will be configurable in menu.
-Calibration does not yet work as code is needed to allow inputting fixed point numbers. Eventually peaks in spectrum (PHA mode) will be selected and energy input for the peak. Calibration will use a 2nd order in the form of ax^2 + bx + c.
-Known problems include rate mode filter causing display problems.
+* Flash card support is tested with FAT32 filesystem only. FAT16 code is
+  included but untested.
 
-Release beta, version 0.3
-Configuration save and restore now implemented;
-Added adjustable width of cursor in PHA mode;
-Numerous bugs fixed, see above.
+* Number of files is very limited. This will be fixed in next release.
 
-Release beta, version 0.2
-Full of bugs, do not use.
+* Turning on the Nano with USB connected causes problems with flash card access.
+  Code detects this and reminds users to disconnect USB.
 
-Release pre-beta, ver 0.1
-Software needs to be tested with current production version of Nano the one with all buttons in a vertical column;
-Software crashes if usb connected to a pc, not a hardware problem as
-DSO software doesn't have this problem;
-There are warnings of incompatible initialization for menu array;
-PHA mode counts roll over to 0 after 65536, all counts need to be
-divided by 2 before this happens;
-Oscilliscope mode is erratic in when it displays pulses;
-Rate display of scale needs to be something useful;
-Add overlapping ADC, current versions of Nano tie AN1 and AN2 together;
-None of the SD flash card software is tested, parameters are not saved;
-PHA mode needs an optional decay feature so spectrum can be observed
-changing as probe is moved, needed for survey work;
-analog input appears to be working with 1 V p-p square wave input,
-esting with scintillation probe not done yet;
-setting input range does not appear to work, looks to be unneeded;
-most of menu not tested;
-configuration does not save and restore between power cycles;
+* ADC is set up for overlapping sampling using both ADC's. This provides a 2 mHz
+  sample rate. Very old Nano's have only 1 ADC connected to input. This will
+  cause problems. If necessary software will add an option to use only 1 ADC.
+  Recommended solution is to get a newer Nano.
+
+* AUTOTUNE function is seted fix to TRUE value so don't know if this is correctly
+  working but presume it is a bug. 0.9 Autotune not fully implemented yet.
+
+* Rate measurement in CPM is about half of actual rate. This needs to be corrected.
+
+* Coincidence detection code still needs implementation.
