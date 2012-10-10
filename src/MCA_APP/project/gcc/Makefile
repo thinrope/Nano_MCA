@@ -1,5 +1,8 @@
 NAME = mca-app
 
+VERSION ?= unset
+BUILD_DATE ?= $(shell date +%F)
+
 # Directory layout
 BASE    = ../../../..
 PRJ     = $(BASE)/src/MCA_APP
@@ -17,11 +20,13 @@ AS = arm-none-eabi-as
 CP = arm-none-eabi-objcopy
 OD = arm-none-eabi-objdump
 
-LNKSCRIPT = stm32f10x_flash_offset.ld
-MFLAGS  = -mcpu=cortex-m3 -mthumb
-ASFLAGS = $(MFLAGS)
-CFLAGS  = $(MFLAGS) $(INCLUDES) -DARM -c -fno-common -Os -g -pipe -DFIXMATH_NO_64BIT -DFIXMATH_NO_OVERFLOW
-LFLAGS  = $(MFLAGS) -T $(LNKSCRIPT) -nostartfiles
+LNKSCRIPT := stm32f10x_flash_offset.ld
+MFLAGS  := -mcpu=cortex-m3 -mthumb
+ASFLAGS := $(MFLAGS)
+CFLAGS  := $(MFLAGS) $(INCLUDES) -c -fno-common -Os -g -DARM -pipe \
+	-DFIXMATH_NO_64BIT -DFIXMATH_NO_OVERFLOW \
+	-D'__APP_VERSION="$(VERSION)"' -D'__BUILD_DATE="$(BUILD_DATE)"' 
+LFLAGS  := $(MFLAGS) -T $(LNKSCRIPT) -nostartfiles
 
 CSRC = \
 	$(PRJ)/source/stm32f10x_vector.c \

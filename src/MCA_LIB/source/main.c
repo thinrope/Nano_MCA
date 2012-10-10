@@ -37,7 +37,7 @@ const u8 small_trelfoil_bits[] = {
 const static char *msg_id = 	    "    Gamma Grapher Version 2";
 const static char *msg_devel = 	"     Multichannel Analyzer";
 const static char *msg_team = 	"        By The GCE Team";
-const static char *msg_libver =  "  LIB Revision 0.11 (2012/9/7)";
+const static char *msg_libver =  "  LIB Revision "__LIB_VERSION" ("__BUILD_DATE")";
 // ALSO CHANGE REVISION IN scsi_data.c !!!!
 
 const static char *msg_noapp = 	"Error: No application found";
