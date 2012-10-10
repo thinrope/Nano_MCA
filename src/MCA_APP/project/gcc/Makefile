@@ -45,7 +45,7 @@ ASRC = ASM_Function-gcc.s cortexm3_macro.s startup_stm32f10x_md.s
 
 AOBJ = $(ASRC:.s=.o)
 
-all: binaries
+all: $(NAME).hex
 
 # NOTE: ASM_Funct-gcc.s is not up to date with changes in ASM_Function-gcc.S
 # The assembly has to be converted from IAR style
@@ -55,7 +55,7 @@ all: binaries
 $(NAME).elf:	$(AOBJ) $(COBJ) $(LNKSCRIPT)
 	$(CC) $(LFLAGS) -o $(NAME).elf $(AOBJ) $(COBJ)
 
-binaries:	$(NAME).elf
+$(NAME).hex:	$(NAME).elf
 	$(OD) -S $(NAME).elf > $(NAME).lst
 	$(CP) -O binary $(NAME).elf $(NAME).bin
 	$(CP) -O ihex $(NAME).elf $(NAME).hex
