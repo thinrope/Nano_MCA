@@ -46,7 +46,7 @@ void Write_Config(void);
 const char *SD_Msgs[] = {"Write Err", "No File", "SD Err", "No Card", "Save Ok", "Failed", "Read Err"};
 #endif
 
-extern s32 pulse_height[MAX_CHANNELS];	// pha data in counts
+extern s32 spectrum[MAX_CHANNELS];	// pha data in counts
 extern u16 msgy;
 extern configurations *confp;
 extern char *hex_conv;
@@ -583,18 +583,20 @@ void Save_Spectrum_CSV(void)
 			return;
 		}
 	}
-	W_Strng("Gamma Grapher Version 2,\n");
-	W_Strng("Comma Separated Values,\n");
-	for(php = &pulse_height[0], i = 0; i < MAX_CHANNELS; i++){
+	W_Strng("#Nano_MCA-");
+	W_Strng(__APP_VERSION);
+	W_Strng("\n");
+
+	W_Strng("#channel,counts\n");
+	for(php = &spectrum[0], i = 0; i < MAX_CHANNELS; i++){
 		memset(buf, ' ', 16);
 		charp = buf;
 		num = *php++;
-		//Unsigned_To_Dec_Str(charp, U32_DIGITS, (u32) i);
-		//charp += U32_DIGITS;
-		//charp++ = ',';
-		Unsigned_To_Dec_Str(charp, U32_DIGITS, num);
+		Unsigned_To_Dec_Str(charp, U32_DIGITS, (u32) i);
 		charp += U32_DIGITS;
 		*charp++ = ',';
+		Unsigned_To_Dec_Str(charp, U32_DIGITS, num);
+		charp += U32_DIGITS;
 		*charp++ = '\n';
 		*charp++ = NULL;
 		W_Strng(buf);
@@ -656,7 +658,7 @@ void Save_Spectrum_N42(void)
 	W_Strng( "            </Equation>\n");
 	W_Strng( "        </Calibration>\n");
 	W_Strng( "        <ChannelData>\n");
-	for(php = &pulse_height[0], i = MAX_CHANNELS; i > 0; i--){
+	for(php = &spectrum[0], i = MAX_CHANNELS; i > 0; i--){
 		num = *php++;
 		Unsigned_To_Dec_Str(buf, U32_DIGITS, num);
 		buf[U32_DIGITS+1] = 0;

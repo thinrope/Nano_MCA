@@ -95,7 +95,7 @@ From: http://universe.gsfc.nasa.gov/xrays/programs/astroe/eng/detection.html
 // globals
 extern configurations configuration;	// Configuration parameters
 extern volatile s16 scan_buffer[SCAN_BUFFER_SZ]; //ring buffer of ADC readings
-extern u32 pulse_height[MAX_CHANNELS];	// pulse height histogram
+extern u32 spectrum[MAX_CHANNELS];	// pulse height histogram
 extern u16 rate[320];					// rate histogram also used for scope mode
 extern scan_states scan_state;			// global so scope mode can reset
 
@@ -115,7 +115,7 @@ static bool alarm_on = FALSE;		// avoid interrupting alarm with beeps
  *******************************************************************************/
 void Acq_Clear_All(void) {
 	//__Display_Str(0, 0, WHITE, PRN, "Clear All");
-	bzero(&pulse_height[0], sizeof(pulse_height));
+	bzero(&spectrum[0], sizeof(spectrum));
 	bzero(&rate[0], sizeof(rate));
 	//bzero(&scope[0], sizeof(scope));
 	live_time = 0;
@@ -303,7 +303,7 @@ void  Scan_Samples(void){
 					// peak now always positive
 					if( peak > cp->sig_lo_lim && peak < cp->sig_hi_lim){
 						bin = fixed_to_int(peak);
-						pulse_height[bin]++;  // increment count in spectrum array
+						spectrum[bin]++;  // increment count in spectrum array
 						cur_cnt++;
 						// handle rate meter beeping
 						if(cp->rate_beep && !alarm_on){

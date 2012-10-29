@@ -56,15 +56,6 @@ const static u8 Small_Trefoil[] = {
 #define SMALL_TREFOIL_WIDTH 32
 #define SMALL_TREFOIL_HEIGHT 32
 
-#if LANGUAGE == EN
-								//012345678901234567890123456789
-const static char *msg_app_ver = "  APP Revision "__APP_VERSION" ("__BUILD_DATE")";
-const static char *msg_chans =   "         2048 Channels";
-const static char *msg_free =    "      Open Source Software";
-const static char *msg_warr =    "          No Warranty";
-#define STRT_MSG_WIDTH	(20 * CHAR_WIDTH)
-#define STRT_MSG_X ((320 / 2) - (STRT_MSG_WIDTH / 2))	// always horizontal to start
-#endif
 
 
 
@@ -72,7 +63,7 @@ const static char *msg_warr =    "          No Warranty";
 u32 live_time = 0;				// sampling time in mS
 bool stop = FALSE;			// stop / start sampling
 scan_states scan_state = LEADING;
-u32 pulse_height[MAX_CHANNELS];	// pha data in counts
+u32 spectrum[MAX_CHANNELS];	// pha data in counts
 u16 rate[MAX_RATE_SLOTS];		// rate in cpm
 u32 live_rate = 0;				// in cpm
 configurations configuration;		// run time configuration
@@ -104,10 +95,10 @@ void   main(void){
 	NVIC_Configuration();
 	/*----------display APP version ----------*/
 	// (0,0) lower left
-	__Display_Str(0, 112, TXT_COLOR, BKGND_COLOR, msg_app_ver);
-	__Display_Str(0, 96, TXT_COLOR, BKGND_COLOR, msg_chans);
-	__Display_Str(0, 80, RED, BKGND_COLOR, msg_free);
-	__Display_Str(0, 64, RED, BKGND_COLOR, msg_warr);
+	__Display_Str(0, 112, TXT_COLOR, BKGND_COLOR, __msg_app_ver__);
+	__Display_Str(0, 96, TXT_COLOR, BKGND_COLOR, __msg_chans__);
+	__Display_Str(0, 80, RED, BKGND_COLOR, __msg_free__);
+	__Display_Str(0, 64, RED, BKGND_COLOR, __msg_warr__);
 	/*--------initialization --------*/
 	Read_Config();
 	if(confp->initialized != INIT_FLAG){	// check for first time run

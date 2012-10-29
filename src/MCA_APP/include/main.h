@@ -156,5 +156,16 @@ typedef struct{
 } configurations;
 
 
+#if LANGUAGE == EN
+//			 0         1         2         3         4         5
+//			 012345678901234567890123456789012345678901234567890
+#define __msg_app_ver__ "  APP Revision "__APP_VERSION" ("__BUILD_DATE")"
+#define __msg_chans__	"         2048 Channels"
+#define __msg_free__	"      Open Source Software"
+#define __msg_warr__	"          No Warranty"
+#define STRT_MSG_WIDTH	(20 * CHAR_WIDTH)
+#define STRT_MSG_X ((320 / 2) - (STRT_MSG_WIDTH / 2))	// always horizontal to start
+#endif
+
 #endif
 /******************************** END OF FILE *********************************/

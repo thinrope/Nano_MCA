@@ -30,7 +30,7 @@ File Name: Function.c
 #include "string.h"
 #include "Files.h"
 
-extern u16	pulse_height[];
+extern u16	spectrum[];
 extern u16 	background[];
 
 #define LANGUAGE EN

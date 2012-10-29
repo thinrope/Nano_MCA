@@ -123,7 +123,7 @@ extern u32 live_time;		// sampling time in mS
 extern configurations configuration;	// Configuration parameters
 extern volatile u8 pwr_lvl;
 extern scan_states scan_state;
-extern u32 pulse_height[MAX_CHANNELS];
+extern u32 spectrum[MAX_CHANNELS];
 extern u16 rate[320];			// rate data in cpm
 extern u32 live_rate;
 extern bool stop;
@@ -175,7 +175,7 @@ void Disp_Clear_All(void) {
 	register configurations *cp = &configuration;
 
 	//__Display_Str(0, 0, WHITE, "Clear All");
-	bzero(&pulse_height[0], sizeof(pulse_height));
+	bzero(&spectrum[0], sizeof(spectrum));
 	bzero(&rate[0], sizeof(rate));
 	//bzero(&scope[0], sizeof(scope));
 	cp->pha_window_hi = cp->pha_channels - 1;
@@ -271,7 +271,7 @@ void Display_Spectrum(void){
 	y_old = 0;
 	y_max = 0;
 	cnt_max = 0;
-	chanp = &pulse_height[chan_lo];
+	chanp = &spectrum[chan_lo];
 	for (chan = chan_lo; chan <= chan_hi; chanp++, chan++) {
 		// map current channel onto display
 		x_nu = ((chan - chan_lo) * cp->graph_width) / window;  // map channel to display column
