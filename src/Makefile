@@ -1,6 +1,8 @@
 BUILD_DATE := $(shell date +%F)
 VERSION := $(shell cat VERSION)
 DEFAULT_ARGS := VERSION=$(VERSION) BUILD_DATE=$(BUILD_DATE)
+# FIXME: provide a way to choose this
+DEVICE := "0483:df11"
 
 RELEASE := ../releases/Nano_MCA-$(VERSION).dfu
 MCA_LIB := MCA_LIB/project/gcc
@@ -24,7 +26,8 @@ upload: $(RELEASE)
 	@echo "====================================================================="
 	@echo "Press Enter when ready..."
 	@read
-	dfu-util -a 0 -D $(RELEASE)
+	dfu-util -d ${DEVICE} -a 0 -D $(RELEASE)
+	# FIXME: add error handling, suggest other DEVICE
 	@echo "====================================================================="
 	@echo "Done flashing, please power off the Nano!"
 	@echo "Disconnect the USB cable and power back on to confirm the firmare version."
